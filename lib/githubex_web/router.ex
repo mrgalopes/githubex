@@ -7,6 +7,8 @@ defmodule GithubexWeb.Router do
 
   scope "/api", GithubexWeb do
     pipe_through :api
+
+    get "/repos/:username", GithubController, :show
   end
 
   # Enables LiveDashboard only for development

@@ -1,6 +1,12 @@
 defmodule GithubexWeb.ErrorView do
   use GithubexWeb, :view
 
+  def render("error.json", %{result: result}) do
+    %{
+      result: result
+    }
+  end
+
   # If you want to customize a particular status code
   # for a certain format, you may uncomment below.
   # def render("500.json", _assigns) do
