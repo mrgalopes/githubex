@@ -7,6 +7,8 @@ defmodule Githubex.User do
 
   @required_params [:password]
 
+  @derive {Jason.Encoder, only: [:id]}
+
   schema "users" do
     field :password, :string, virtual: true
     field :password_hash, :string
