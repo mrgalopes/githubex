@@ -3,6 +3,8 @@ defmodule Githubex.User do
 
   import Ecto.Changeset
 
+  @primary_key {:id, :binary_id, autogenerate: true}
+
   @required_params [:password]
 
   schema "users" do
