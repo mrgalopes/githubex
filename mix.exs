@@ -47,7 +47,8 @@ defmodule Githubex.MixProject do
       {:credo, "~> 1.6", only: [:dev, :test], runtime: false},
       {:tesla, "~> 1.4"},
       {:hackney, "~> 1.17"},
-      {:bypass, "~> 2.1", only: :test}
+      {:bypass, "~> 2.1", only: :test},
+      {:pbkdf2_elixir, "~> 2.0"}
     ]
   end
 

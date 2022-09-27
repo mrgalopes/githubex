@@ -10,6 +10,10 @@ import Config
 config :githubex,
   ecto_repos: [Githubex.Repo]
 
+config :githubex, Githubex.Repo,
+  migration_primary_key: [type: :binary_id],
+  migration_foreign_key: [type: :binary_id]
+
 # Configures the endpoint
 config :githubex, GithubexWeb.Endpoint,
   url: [host: "localhost"],
