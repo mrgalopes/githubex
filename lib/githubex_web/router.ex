@@ -10,6 +10,7 @@ defmodule GithubexWeb.Router do
 
     get "/repos/:username", GithubController, :show
     post "/users", UsersController, :create
+    post "/users/sign-in", UsersController, :sign_in
   end
 
   # Enables LiveDashboard only for development

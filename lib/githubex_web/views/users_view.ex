@@ -4,4 +4,6 @@ defmodule GithubexWeb.UsersView do
       id: user.id
     }
   end
+
+  def render("sign_in.json", %{token: token}), do: %{token: token}
 end
