@@ -5,12 +5,21 @@ defmodule GithubexWeb.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :auth do
+    plug GithubexWeb.Auth.Pipeline
+  end
+
   scope "/api", GithubexWeb do
     pipe_through :api
 
-    get "/repos/:username", GithubController, :show
-    post "/users", UsersController, :create
     post "/users/sign-in", UsersController, :sign_in
+    post "/users", UsersController, :create
+  end
+
+  scope "/api", GithubexWeb do
+    pipe_through [:api, :auth]
+
+    get "/repos/:username", GithubController, :show
   end
 
   # Enables LiveDashboard only for development
