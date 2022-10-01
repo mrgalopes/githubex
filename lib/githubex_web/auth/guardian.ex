@@ -30,7 +30,7 @@ defmodule GithubexWeb.Auth.Guardian do
   defp authenticate_user(%User{password_hash: password_hash} = user, password) do
     case Pbkdf2.verify_pass(password, password_hash) do
       false -> {:error, Error.build(:unauthorized, "Password invalid")}
-      true -> encode_and_sign(user)
+      true -> encode_and_sign(user, %{}, ttl: {1, :minute})
     end
   end
 end
